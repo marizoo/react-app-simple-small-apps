@@ -1,12 +1,13 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import styled from "styled-components";
-import Hero from "./components/hero/Hero";
+import Home from "./components/home/Home";
 import Temperature from "./components/temperature/Temperature";
 
 const AppSt = styled.div`
     /* min-height: 100vh; */
-    background: #1d1d1d;
-    color: white;
+    /* background: #1d1d1d;
+    color: white; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,8 +17,10 @@ const AppSt = styled.div`
 const App = () => {
     return (
         <AppSt>
-            <Hero />
-            <Temperature />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="temperature" element={<Temperature />} />
+            </Routes>
         </AppSt>
     );
 };

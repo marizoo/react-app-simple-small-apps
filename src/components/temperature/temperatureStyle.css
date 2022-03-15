@@ -7,15 +7,18 @@
     color: white;
     display: flex;
     justify-content: center;
+    position: relative;
 
 }
 
 .temperature-container {
+    margin-top: 2rem;
     width: 90%;
     padding: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .temp__card{
@@ -81,4 +84,54 @@
 .temp__card__bottom-btn-minus{
     font-size: 3.5rem;
 }
+
+
+/* ICON - GO HOME */
+.icon-gohome-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid lightgray;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    transition: 0.3s;
+}
+
+.icon-gohome-link:hover{
+    border-color: hotpink;
+}
+
+.icon-gohome-link:hover .icon-gohome-icon{
+    color: hotpink;
+
+}
+
+
+.icon-gohome-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    place-items: center;
+    transition: 0.3s;
+    cursor: pointer;
+    color: white;
+}
+
+.icon-gohome-icon{
+    font-size: 1rem;
+    color: lightgray;
+}
+
+
+
+
+
 

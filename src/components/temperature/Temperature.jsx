@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./temperatureStyle.css";
+import { HiOutlineHome } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 const Temperature = () => {
     const [temperature, setTemperature] = useState("27");
@@ -54,6 +56,11 @@ const Temperature = () => {
                         </div>
                     </div>
                 </div>
+                <Link className="icon-gohome-link" to="/">
+                    <div className="icon-gohome-container">
+                        <HiOutlineHome className="icon-gohome-icon" />
+                    </div>
+                </Link>
             </div>
         </div>
     );

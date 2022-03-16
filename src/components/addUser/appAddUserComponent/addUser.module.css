@@ -1,0 +1,18 @@
+.addUser{}
+.addUserContainer{}
+.addUserForm{
+    display: flex;
+    flex-direction: column;
+}
+.addUserLabel{
+    font-size: 1.2rem;
+    margin-bottom: .3rem;
+}
+
+.addUserInput{
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+.addUserInput:active{
+    outline: hotpink;
+}

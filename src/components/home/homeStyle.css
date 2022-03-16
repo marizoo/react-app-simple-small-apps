@@ -1,6 +1,6 @@
  .home {
- /* min-height: 100vh; */
- height: 100vh;
+ min-height: 100vh;
+ height: 100%;
  width: 100vw;
  background: #1d1d1d;
  color: white;
@@ -14,13 +14,15 @@
     position: absolute;
     width: 80px;
     height: 80px;
-    box-shadow: 206px 260px #ffc300, -190px 70px #FF5733;
+    box-shadow: 150px 260px #ffc300, -100px 50px #FF5733, -140px 520px lightblue;
     border-radius: 50%;
 }
 
  .home-container {
-     margin-top: 5rem;
-     width: 60%;
+     margin-top: 2rem;
+     width: 80%;
+     min-width: 260px;
+     max-width: 480px;
      display: flex;
      flex-direction: column;
      align-items: center;

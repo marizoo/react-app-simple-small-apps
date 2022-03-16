@@ -1,0 +1,16 @@
+.addUserBtn{
+    background: hotpink;
+    color: white;
+    padding: 5px 15px;
+    min-width: 200px;
+    border-radius: 15px;
+    margin: 1rem 0 1.5rem;
+    border: 0;
+    transition: 0.3s;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.addUserBtn:hover{
+    background: #ca518e;
+}

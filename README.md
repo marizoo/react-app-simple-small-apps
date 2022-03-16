@@ -1,6 +1,13 @@
 
 ## DESCRIPTION:
-- Few small and simple apps, created with React
+- Few small and simple apps, created with React.
+- App List:
+    1. Temperature Display.
+    2. Add Users App.
+    3. Sign In Form.
+    4. Shopping List.
+    5. Weather App (from weather API).
+    6. User App (from github API)
 - [Youtube Video of the App](https://youuuuuuuuuuuuuuuuuuuuuuuu.tbc)
 
 ## OUTCOME:
@@ -11,7 +18,7 @@
 - React,
 - React-router-dom, react-icons,
 - Hooks: useState.
-- styling: Styled Components + vanilla css (BEM)
+- styling: module css + vanilla css (BEM)
 
 ## PROGRESS:
 - 10%

@@ -1,0 +1,24 @@
+.signInWelcome{}
+.signInWelcomeContainer{
+    color: hotpink;
+    text-align: center;
+    
+}
+
+.signInWelcomebutton{
+    margin-top: 1rem;
+    border: 0;
+    background: lightgray;
+    color: black;
+    padding: 5px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+    align-self: center;
+}
+
+.signInWelcomebutton:hover{
+    background: gray;
+    color: white;
+}

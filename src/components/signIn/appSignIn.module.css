@@ -19,6 +19,98 @@
     position: relative;
 }
 
+.appSignInCard{
+    min-width: 280px;
+    max-width: 60%;
+    border-radius: 10px;
+    margin: 1rem 0;
+    box-shadow: 2px 5px 20px rgba(255, 255, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    background: white;
+    color: black;
+    padding: 1.5rem;
+}
+
+.appSignInInput{
+    background: 0;
+    border:0;
+    background: lightgray;
+    border-radius: 6px;
+    padding-left: 5px;
+}
+
+.appSignInInput:focus{
+outline: none;
+}
+
+.appSignInEmailCont{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;    
+}
+
+.appSignInPasswordCont{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.appSignInButton{
+    margin-top: 1rem;
+    border: 0;
+    background: lightgray;
+    color: black;
+    padding: 5px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 50%;
+    align-self: center;
+}
+
+.appSignInButton:hover{
+    background: gray;
+    color: white;
+}
+
+.appSignInErrorMsgContainer{
+    text-align: center;
+    margin: 1rem 0;
+    color: hotpink;
+}
+
+@media (min-width: 600px) {
+    .appSignInCard{
+        padding: 2rem 2rem;
+
+    }
+
+    .appSignInInput{
+    
+        width: 70%;
+    }
+    
+
+    .appSignInEmailCont{
+        width: 100%;
+        flex-direction: row;
+       justify-content: space-between;
+    }
+    .appSignInPasswordCont{
+        width: 100%;
+        flex-direction: row;
+       justify-content: space-between;
+
+    }
+
+    .appSignInButton{
+        width: 50%;
+}
+}
+
+
+
 
 
 /* ICON - GO HOME */

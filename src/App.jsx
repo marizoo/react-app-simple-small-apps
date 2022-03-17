@@ -10,9 +10,6 @@ import AppUserApi from "./components/userApi/AppUserApi";
 import AppWeather from "./components/weatherApp/AppWeather";
 
 const AppSt = styled.div`
-    /* min-height: 100vh; */
-    /* background: #1d1d1d;
-    color: white; */
     display: flex;
     flex-direction: column;
     align-items: center;

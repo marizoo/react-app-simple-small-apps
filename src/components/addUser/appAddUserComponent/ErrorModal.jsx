@@ -1,6 +1,5 @@
 import React from "react";
 import AddUserButton from "../appAddUserUI/AddUserButton";
-import AddUserCard from "../appAddUserUI/AddUserCard";
 import classes from "./errorModal.module.css";
 import ReactDOM from "react-dom";
 

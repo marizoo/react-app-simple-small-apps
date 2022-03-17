@@ -17,19 +17,20 @@ const Backdrop = (props) => {
 // create "ModalOverlay" component.
 const ModalOverlay = (props) => {
     return (
-        <AddUserCard className={classes.errorModalModal}>
+        // <AddUserCard className={classes.errorModalModal}>
+        <div className={classes.errorModalModal}>
             <header className={classes.errorModalHeader}>
                 <h2>{props.title}</h2>
             </header>
             <div className={classes.errorModalContent}>
-                <p>{props.message}</p>
+                <p className={classes.errorModalContentMsg}>{props.message}</p>
             </div>
             <footer className={classes.errorModalFooter}>
                 <AddUserButton onClick={props.onCloseErrorModal}>
                     Okay
                 </AddUserButton>
             </footer>
-        </AddUserCard>
+        </div>
     );
 };
 

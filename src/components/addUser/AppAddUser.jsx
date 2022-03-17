@@ -41,8 +41,8 @@ const AppAddUser = () => {
         // 03.a2/4 validation check, if input is empty then return.
 
         if (
-            addUserData.userName.trim() === 0 ||
-            addUserData.userAge.trim() === 0
+            addUserData.userName.trim().length === 0 ||
+            addUserData.userAge.trim().length === 0
         ) {
             setError({
                 title: "Invalid input",

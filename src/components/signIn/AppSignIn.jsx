@@ -1,32 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { HiOutlineHome } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import classes from "./appSignIn.module.css";
 import SignInWelcomePage from "./appSignInComponent/SignInWelcomePage";
 
-// link to this
-//  signInWelcome
-
 const AppSignIn = () => {
-    // 01. a1/x. To capture all data
-    // const [datas, setDatas] = useState({
-    //     emailInput: "",
-    //     passwordInput: "",
-    // });
-
-    // 02. a1/3. To capture email and password input
+    // 01. a1/3. To capture email and password input
     const [loginDatas, setLoginDatas] = useState({
         emailInput: "",
         passwordInput: "",
     });
 
-    // 03. a1/1. State to navigate to welcome page
+    // 02. a1/1. State to navigate to welcome page
     const [correctLogin, setCorrectLogin] = useState(false);
+
+    //05. a2/3. check the value of the key: isAppSignInLoggedIn.
+    useEffect(() => {
+        const storedAppSignInIsLoggedIn = localStorage.getItem(
+            "isAppSignInLoggedIn"
+        );
+
+        if (storedAppSignInIsLoggedIn === "1") {
+            setCorrectLogin(true);
+        }
+    }, []);
 
     // 04. a1/1. State to show/hide Error message
     const [errorMessage, setErrorMessage] = useState(false);
 
-    // 02. a2/3. To handle input value of email and password
+    // 01. a2/3. To handle input value of email and password
     const handleInputs = (ev) => {
         ev.preventDefault();
 
@@ -39,7 +41,7 @@ const AppSignIn = () => {
         setLoginDatas(copyLoginDatas);
     };
 
-    // 02. a3/3. To handle login's form submission.
+    // 01. a3/3. To handle login's form submission.
     const handleLogin = (ev) => {
         ev.preventDefault();
 
@@ -59,6 +61,9 @@ const AppSignIn = () => {
                 emailInput: "",
                 passwordInput: "",
             });
+            //05. a1/3. save correct input in local storage
+            //  key: isAppSignInLoggedIn. value: 1. 1 means logged in. 0 means logged out.
+            localStorage.setItem("isAppSignInLoggedIn", "1");
         } else {
             setErrorMessage(true);
 
@@ -73,9 +78,12 @@ const AppSignIn = () => {
         }
     };
 
-    // 04. a1.1 handle logout button
+    // 03. a1.1 handle logout button
     const handleLogOut = () => {
         setCorrectLogin(false);
+
+        //05. a3/3. set the value of the key: isAppSignInLoggedIn to '0'. so login won't persist.
+        localStorage.setItem("isAppSignInLoggedIn", "0");
     };
 
     return (

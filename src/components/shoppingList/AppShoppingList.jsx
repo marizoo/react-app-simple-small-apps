@@ -74,6 +74,14 @@ const AppShoppingList = () => {
         setDatas(newDatas);
     };
 
+    const handleDelete = (clickedId) => {
+        const newDatas = datas.filter((data) => data.id !== clickedId);
+        setDatas(newDatas);
+    };
+
+    // Count completed Item
+    const countChecks = datas.filter((data) => data.isCompleted === true);
+
     return (
         <div className={cm.appShopping}>
             <div className={cm.appShoppingContainer}>
@@ -107,13 +115,14 @@ const AppShoppingList = () => {
                             data={data}
                             clickedIndex={index}
                             handleIsCompletedToggle={handleIsCompletedToggle}
+                            onHandleDelete={handleDelete}
                         />
                     ))}
                     {/* bottom */}
                     <div className={cm.shoppingBox__bottom}>
                         <div className={cm.shoppingBox__bottom}>
                             <p className={cm.shoppingBox__bottomText}>
-                                Total: 6
+                                Completed item: {countChecks.length}
                             </p>
                         </div>
                     </div>

@@ -1,9 +1,14 @@
 import React from "react";
 import cm from "./ShoppingList_list.module.css";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { FiChevronLeft, FiChevronRight, FiTrash2 } from "react-icons/fi";
 import { FaRegCircle, FaRegCheckCircle } from "react-icons/fa";
 
-const ShoppingList_list = ({ data, clickedIndex, handleIsCompletedToggle }) => {
+const ShoppingList_list = ({
+    data,
+    clickedIndex,
+    handleIsCompletedToggle,
+    onHandleDelete,
+}) => {
     return (
         <div className={cm.shoppingBox__mid}>
             <div className={cm.shoppingBox__mid_box}>
@@ -47,6 +52,12 @@ const ShoppingList_list = ({ data, clickedIndex, handleIsCompletedToggle }) => {
                             }
                         />
                     </div>
+                </div>
+                <div
+                    className={cm.shoppingBox__mid_box_right_trash}
+                    onClick={() => onHandleDelete(data.id)}
+                >
+                    <FiTrash2 />
                 </div>
             </div>
         </div>

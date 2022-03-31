@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import cm from "./appShopping.module.css";
 import { HiOutlineHome } from "react-icons/hi";
@@ -6,21 +6,17 @@ import { IoMdAdd } from "react-icons/io";
 import ShoppingList_list from "./shoppingList-component/ShoppingList_list";
 import { nanoid } from "nanoid";
 
+// BUGS
+// when items are added, and the isCompleted is toggled to true, the strike dont work. why?
+
 const AppShoppingList = () => {
     // state to list data on ShoppingList_list.jsx
-    const [datas, setDatas] = useState([
-        {
-            id: 1,
-            item: "carrots",
-            quantity: 3,
-            isCompleted: true,
-        },
-
+    const [datas, setDatas] = useState(() => {
         // get local stored data
-        //  const saved = localStorage.getItem("todoos");
-        //  const savedDatas = JSON.parse(saved);
-        //  return savedDatas || "";
-    ]);
+        const saved = localStorage.getItem("todoos");
+        const savedDatas = JSON.parse(saved);
+        return savedDatas || "";
+    });
 
     // state to get data from Form (class=shoppingBoxTopForm)
     const [inputs, setInputs] = useState({
@@ -81,6 +77,12 @@ const AppShoppingList = () => {
 
     // Count completed Item
     const countChecks = datas.filter((data) => data.isCompleted === true);
+
+    // save to local storage
+    useEffect(() => {
+        const json = JSON.stringify(datas);
+        localStorage.setItem("todoos", json);
+    }, [datas]);
 
     return (
         <div className={cm.appShopping}>

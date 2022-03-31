@@ -61,6 +61,7 @@ const AppSignIn = () => {
                 emailInput: "",
                 passwordInput: "",
             });
+
             //05. a1/3. save correct input in local storage
             //  key: isAppSignInLoggedIn. value: 1. 1 means logged in. 0 means logged out.
             localStorage.setItem("isAppSignInLoggedIn", "1");

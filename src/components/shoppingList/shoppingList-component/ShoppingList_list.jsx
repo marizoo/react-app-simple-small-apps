@@ -8,6 +8,8 @@ const ShoppingList_list = ({
     clickedIndex,
     handleIsCompletedToggle,
     onHandleDelete,
+    onHandleQuantityDecrease,
+    onHandleQuantityIncrease,
 }) => {
     return (
         <div className={cm.shoppingBox__mid}>
@@ -37,6 +39,9 @@ const ShoppingList_list = ({
                             className={
                                 cm.shoppingBox__mid_box_right_container_icon
                             }
+                            onClick={() =>
+                                onHandleQuantityDecrease(clickedIndex)
+                            }
                         />
 
                         <p
@@ -49,6 +54,9 @@ const ShoppingList_list = ({
                         <FiChevronRight
                             className={
                                 cm.shoppingBox__mid_box_right_container_icon
+                            }
+                            onClick={() =>
+                                onHandleQuantityIncrease(clickedIndex)
                             }
                         />
                     </div>

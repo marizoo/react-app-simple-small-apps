@@ -87,13 +87,14 @@
     margin-top: 1rem;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
-.shoppingBox__bottomText{
+.shoppingBox__bottomText_total,
+.shoppingBox__bottomText_completed{
     font-weight: 500;
     font-size: 1.25rem;
     color: white;
-padding-right: 1rem;
+padding: 0 1rem;
 }
 
 

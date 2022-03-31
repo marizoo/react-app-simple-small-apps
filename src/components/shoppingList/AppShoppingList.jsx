@@ -8,6 +8,7 @@ import { nanoid } from "nanoid";
 
 // BUGS
 // when items are added, and the isCompleted is toggled to true, the strike dont work. why?
+// when new item is added, the total didnt take effect till the 2nd add on
 
 const AppShoppingList = () => {
     // state to list data on ShoppingList_list.jsx
@@ -17,6 +18,9 @@ const AppShoppingList = () => {
         const savedDatas = JSON.parse(saved);
         return savedDatas || "";
     });
+
+    // state to keep the total item count
+    const [totalItemCount, setTotalItemCount] = useState();
 
     // state to get data from Form (class=shoppingBoxTopForm)
     const [inputs, setInputs] = useState({
@@ -60,6 +64,30 @@ const AppShoppingList = () => {
             quantity: "",
             isCompleted: "",
         });
+        setTotalItemCount(1);
+        calculateTotal();
+    };
+
+    // handle quantity increase
+    const handleQuantityIncrease = (index) => {
+        const newDatas = [...datas];
+        if (newDatas[index].quantity === 10) return;
+        newDatas[index].quantity++;
+
+        setDatas(newDatas);
+        calculateTotal();
+    };
+
+    // handle quantity decrease
+    const handleQuantityDecrease = (index) => {
+        const newDatas = [...datas];
+
+        if (newDatas[index].quantity === 0) return;
+
+        newDatas[index].quantity--;
+
+        setDatas(newDatas);
+        calculateTotal();
     };
 
     // toggle for "isCompleted" boolean value
@@ -73,10 +101,20 @@ const AppShoppingList = () => {
     const handleDelete = (clickedId) => {
         const newDatas = datas.filter((data) => data.id !== clickedId);
         setDatas(newDatas);
+        calculateTotal();
     };
 
     // Count completed Item
     const countChecks = datas.filter((data) => data.isCompleted === true);
+
+    // count total of item's quantity
+    const calculateTotal = () => {
+        const totalItemCount = datas.reduce((total, data) => {
+            return total + data.quantity;
+        }, 0);
+
+        setTotalItemCount(totalItemCount);
+    };
 
     // save to local storage
     useEffect(() => {
@@ -118,13 +156,18 @@ const AppShoppingList = () => {
                             clickedIndex={index}
                             handleIsCompletedToggle={handleIsCompletedToggle}
                             onHandleDelete={handleDelete}
+                            onHandleQuantityIncrease={handleQuantityIncrease}
+                            onHandleQuantityDecrease={handleQuantityDecrease}
                         />
                     ))}
                     {/* bottom */}
                     <div className={cm.shoppingBox__bottom}>
                         <div className={cm.shoppingBox__bottom}>
-                            <p className={cm.shoppingBox__bottomText}>
-                                Completed item: {countChecks.length}
+                            <p className={cm.shoppingBox__bottomText_completed}>
+                                Completed: {countChecks.length}
+                            </p>
+                            <p className={cm.shoppingBox__bottomText_total}>
+                                total: {totalItemCount}
                             </p>
                         </div>
                     </div>

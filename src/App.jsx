@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import styled from "styled-components";
 import AppAddUser from "./components/addUser/AppAddUser";
+import AppDateApp from "./components/dateApp/AppDateApp";
 import Home from "./components/home/Home";
 import AppShoppingList from "./components/shoppingList/AppShoppingList";
 import AppSignIn from "./components/signIn/AppSignIn";
@@ -27,6 +28,7 @@ const App = () => {
                 <Route path="shopping" element={<AppShoppingList />} />
                 <Route path="weather" element={<AppWeather />} />
                 <Route path="userApi" element={<AppUserApi />} />
+                <Route path="dateApp" element={<AppDateApp />} />
             </Routes>
         </AppSt>
     );

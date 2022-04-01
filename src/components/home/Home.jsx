@@ -30,6 +30,11 @@ const Home = () => {
                         </Link>
                     </button>
                     <button className="home-button home-list">
+                        <Link className="home-list-link" to="/dateApp">
+                            Date App
+                        </Link>
+                    </button>
+                    <button className="home-button home-list">
                         <Link className="home-list-link" to="/weather">
                             Weather App (api)
                         </Link>

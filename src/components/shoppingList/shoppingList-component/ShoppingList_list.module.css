@@ -62,7 +62,8 @@ align-items: center;
     align-items: center;
     justify-content: center;
     height: 100%;
-    color: black;
+   color: rgb(202, 75, 139); 
+
    
 }
 .shoppingBox__mid_box_right_container_icon{
@@ -73,7 +74,7 @@ align-items: center;
     transition: .3s;
 }
 .shoppingBox__mid_box_right_container_icon:hover{
-   color: hotpink; 
+   color: lightblue; 
 }
 .shoppingBox__mid_box_right_container_text{
     display: inline-flex;

@@ -7,20 +7,25 @@ import ShoppingList_list from "./shoppingList-component/ShoppingList_list";
 import { nanoid } from "nanoid";
 
 // BUGS
-// when items are added, and the isCompleted is toggled to true, the strike dont work. why?
-// when new item is added, the total didnt take effect till the 2nd add on
+// total item is SO BUGGY.
 
 const AppShoppingList = () => {
     // state to list data on ShoppingList_list.jsx
     const [datas, setDatas] = useState(() => {
-        // get local stored data
         const saved = localStorage.getItem("todoos");
         const savedDatas = JSON.parse(saved);
         return savedDatas || "";
     });
 
+    // get from local storage
+    useEffect(() => {
+        const saved = localStorage.getItem("todoos");
+        const savedDatas = JSON.parse(saved);
+        return savedDatas || "";
+    }, [datas]);
+
     // state to keep the total item count
-    const [totalItemCount, setTotalItemCount] = useState();
+    const [totalItemCount, setTotalItemCount] = useState(1);
 
     // state to get data from Form (class=shoppingBoxTopForm)
     const [inputs, setInputs] = useState({
@@ -64,7 +69,6 @@ const AppShoppingList = () => {
             quantity: "",
             isCompleted: "",
         });
-        setTotalItemCount(1);
         calculateTotal();
     };
 
@@ -104,9 +108,6 @@ const AppShoppingList = () => {
         calculateTotal();
     };
 
-    // Count completed Item
-    const countChecks = datas.filter((data) => data.isCompleted === true);
-
     // count total of item's quantity
     const calculateTotal = () => {
         const totalItemCount = datas.reduce((total, data) => {
@@ -115,6 +116,9 @@ const AppShoppingList = () => {
 
         setTotalItemCount(totalItemCount);
     };
+
+    // Count completed Item
+    const countChecks = datas.filter((data) => data.isCompleted === true);
 
     // save to local storage
     useEffect(() => {
@@ -125,7 +129,7 @@ const AppShoppingList = () => {
     return (
         <div className={cm.appShopping}>
             <div className={cm.appShoppingContainer}>
-                <h1>AppShoppingList</h1>
+                <h1>Shopping List App</h1>
                 <div className={cm.shoppingBox}>
                     {/* top */}
                     <div className={cm.shoppingBoxTop}>
@@ -167,7 +171,7 @@ const AppShoppingList = () => {
                                 Completed: {countChecks.length}
                             </p>
                             <p className={cm.shoppingBox__bottomText_total}>
-                                total: {totalItemCount}
+                                Total: {totalItemCount}
                             </p>
                         </div>
                     </div>

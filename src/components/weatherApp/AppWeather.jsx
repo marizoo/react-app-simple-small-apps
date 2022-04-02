@@ -60,30 +60,59 @@ const AppWeather = () => {
     return (
         <div className={cm.appWeather}>
             <div className={cm.appWeatherContainer}>
+                {/* <div
+                    className={`(${typeof weather.main} != 'undefined') 
+                ? ((${weather.main.temp} > 16) ? ${cm.appWeatherCard_warm} : ${
+                        cm.appWeatherCard_cold
+                    })
+                : ${cm.appWeatherCard})
+              `}
+                > */}
                 <div className={cm.appWeatherCard}>
                     <div className={cm.appWeatherCard_input}>
                         <input
                             type="text"
                             className={cm.appWeatherCard_input_input}
                             placeholder="Search..."
+                            value={query}
+                            onChange={(ev) => setQuery(ev.target.value)}
+                            onKeyPress={search}
                         />
                     </div>
-                    <div className={cm.appWeatherCard_location}>
-                        <h3 className={cm.appWeatherCard_location_city}>
-                            Bali, ID
-                        </h3>
-                        <h3 className={cm.appWeatherCard_location_dates}>
-                            Monday 10 January 2022
-                        </h3>
-                    </div>
-                    <div className={cm.appWeatherCard_temperature}>
-                        <p className={cm.appWeatherCard_temperature_text}>
-                            25&deg;c
-                        </p>
-                    </div>
-                    <div className={cm.appWeatherCard_desc}>
-                        <p className={cm.appWeatherCard_desc_p}>Clouds</p>
-                    </div>
+                    {typeof weather.main != "undefined" && (
+                        <>
+                            <div className={cm.appWeatherCard_location}>
+                                <h3 className={cm.appWeatherCard_location_city}>
+                                    {weather.name}, {weather.sys.country}
+                                </h3>
+                                <h3
+                                    className={cm.appWeatherCard_location_dates}
+                                >
+                                    {dateBuilder(new Date())}
+                                </h3>
+                            </div>
+                            <div className={cm.appWeatherCard_temperature}>
+                                <p
+                                    className={
+                                        cm.appWeatherCard_temperature_text
+                                    }
+                                >
+                                    {Math.round(weather.main.temp)}&deg;c
+                                </p>
+                            </div>
+                            <div className={cm.appWeatherCard_desc}>
+                                <p className={cm.appWeatherCard_desc_p}>
+                                    {weather.weather[0].main}
+                                </p>
+                            </div>
+                        </>
+                    )}
+
+                    {typeof weather.main == "undefined" && (
+                        <div className={cm.appWeatherCard_noResult}>
+                            Sorry... <br /> no result.
+                        </div>
+                    )}
                 </div>
             </div>
             <Link className="icon-gohome-link" to="/">

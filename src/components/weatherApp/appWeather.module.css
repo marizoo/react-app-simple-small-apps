@@ -23,7 +23,27 @@
 .appWeatherCard{
   width: 310px;
   min-height: 100px;
-  background-color: rgba(251, 141, 157, 0.636);
+  background-color: rgba(130, 101, 146, 0.96);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.appWeatherCard_cold{
+  width: 310px;
+  min-height: 100px;
+  background-color: rgba(121, 185, 240, 0.96);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.appWeatherCard_warm{
+  width: 310px;
+  min-height: 100px;
+  background-color: hotpink;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -43,12 +63,15 @@
   border-bottom-left-radius: 20px;
   padding-left: 10px;
   color: rgb(35, 35, 35);
-  background-color: rgba(255, 255, 255, 0.576);
-  font-weight: 400;
+  background-color: rgba(196, 194, 194, 0.583);
+  font-weight: 700;
   font-size: 1.1rem;
   border: none;
+  color: rgb(255, 255, 255);
 }
-
+.appWeatherCard_input_input:focus{
+  outline: none;
+}
 
 /* location */
 .appWeatherCard_location{
@@ -66,7 +89,7 @@
 .appWeatherCard_temperature{
   margin-top: 2rem;
   padding: .25rem 1rem;
-  background-color: rgba(255, 255, 255, 0.567);
+  background-color: rgba(224, 222, 222, 0.862);
   border-radius: 30px;
 }
 .appWeatherCard_temperature_text{
@@ -82,6 +105,13 @@
 .appWeatherCard_desc_p{
   font-size: 2rem;
   font-weight: 700;
+}
+
+/* no result */
+.appWeatherCard_noResult{
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 5rem 0;
 }
 
 /* ICON - GO HOME */
@@ -108,7 +138,6 @@
 
 .icon-gohome-link:hover .icon-gohome-icon{
     color: white;
-
 }
 
 
